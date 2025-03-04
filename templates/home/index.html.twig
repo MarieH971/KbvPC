@@ -10,9 +10,9 @@
 {% endblock %}
 
 {% block page_main %}
-
-        <h2>Hello {{ name }}! ✅</h2>
         <p>Content<p>
+        <div {{ react_component('Hello', { name: 'MarieH' }) }}>Loading... <i class="fas fa-cog fa-spin fa-3x"></i></div>
+       
         <a href="#">CTA Catalog</a>
 
 {% endblock %}
