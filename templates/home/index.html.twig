@@ -1,0 +1,24 @@
+{% extends 'basicPage.html.twig' %}
+
+{% block title %}HOME{% endblock %}
+
+{% block page_header %}
+
+        {{ parent() }}
+        <h1>HOME</h1>
+
+{% endblock %}
+
+{% block page_main %}
+        <p>Content<p>
+        <div {{ react_component('Hello', { name: 'MarieH' }) }}>Loading... <i class="fas fa-cog fa-spin fa-3x"></i></div>
+       
+        <a href="#">CTA Catalog</a>
+
+{% endblock %}
+
+
+
+
+    
+  
