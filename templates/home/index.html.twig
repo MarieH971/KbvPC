@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HOME{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <header>
+        {% include "_partials/menu.html.twig" %}
+        <h1>HOME</h1>
+        
+    </header>
+    <main>
+        <h2>Hello {{ name }}! ✅</h2>
+        <p>Content<p>
+        <a href="#">CTA Catalog</a>
+    </main>
+    {% include "_partials/footer.html.twig" %}
+  
+</div>
+{% endblock %}
