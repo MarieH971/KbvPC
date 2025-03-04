@@ -1,21 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'basicPage.html.twig' %}
 
 {% block title %}ABOUT{% endblock %}
 
-{% block body %}
+{% block page_header %}
 
-
-<div class="container">
-    <header>
-        {% include "_partials/menu.html.twig" %}
+        
         <h1>ABOUT</h1>
-        
-    </header>
-    <main>
-        
-        <p>A propos de KBV<p>
-        
-    </main>
-    {% include "_partials/footer.html.twig" %}
-</div>
+
 {% endblock %}
+
+{% block page_main %}
+
+        <p>A propos de KBV<p>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

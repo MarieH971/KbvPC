@@ -1,22 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends 'basicPage.html.twig' %}
 
 {% block title %}HOME{% endblock %}
 
-{% block body %}
+{% block page_header %}
 
-
-<div class="container">
-    <header>
-        {% include "_partials/menu.html.twig" %}
+        {{ parent() }}
         <h1>HOME</h1>
-        
-    </header>
-    <main>
+
+{% endblock %}
+
+{% block page_main %}
+
         <h2>Hello {{ name }}! ✅</h2>
         <p>Content<p>
         <a href="#">CTA Catalog</a>
-    </main>
-    {% include "_partials/footer.html.twig" %}
-  
-</div>
+
 {% endblock %}
+
+
+
+
+    
+  
