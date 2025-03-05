@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { registerReactControllerComponents } from '@symfony/ux-react';
 import './bootstrap.js';
 /*
@@ -11,3 +13,17 @@ import './bootstrap.js';
 import './styles/app.css';
 
 registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
+
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Inscription from './react/controllers/Inscription.jsx';
+
+ReactDOM.render(
+    <Router>
+        <Switch>
+            {/* Route pour la page d'inscription */}
+            <Route path="/inscription" component={Inscription} />
+        </Switch>
+    </Router>,
+    document.getElementById('root') // Assurez-vous que cet ID correspond à l'élément HTML dans Twig
+);
