@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { registerReactControllerComponents } from '@symfony/ux-react';
 import './bootstrap.js';
+
 /*
  * Welcome to your app's main JavaScript file!
  *

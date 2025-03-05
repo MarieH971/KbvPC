@@ -22,6 +22,8 @@ a{
     text-decoration: none;
     color:rgb(193, 18, 108);
 }
+
+
 /* *******************************NAVBAR************************** */
 nav{
 overflow: hidden;
@@ -74,6 +76,14 @@ h3{
     font-size: 2em;
     text-shadow: 1px 3px 2px black;
 }
+
+.buttonInsc{
+    background: rgb(169, 176, 230) ;
+    color: rgb(193, 18, 108) ;
+    padding: 10px;
+    border-radius: 8px;
+}
+
 #presentation{
     background-color:rgb(204, 227, 219);
     padding: 10px 0px 100px 0;

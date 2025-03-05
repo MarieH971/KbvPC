@@ -1,5 +1,7 @@
 {% extends 'basicPage.html.twig' %}
 
+
+
 {% block title %}Karukera Beach volley Guadeloupe{% endblock %}
 
 {% block page_header %}
@@ -14,8 +16,24 @@
 	</div>
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    
+{% endblock %}
+
 {% block page_main %}
         <h3 class="laUne">À LA UNE !</h3>
+        <div class="containerUne">
+        <img src="https://fakeimg.pl/710x400/ff0000/">
+        </div>
+        <p>" Le Championnat BEACH-VOLLEY 2024/2025 est toujours en cours ! "</p>
+        <p> Ci-dessous le lien pour vous inscrire à l'association 🖣 </p>
+        
+        
+        <button class="buttonInsc" type="button">INSCRIPTION A L'ASSOCIATION</button>
+  
+        
+        
         <div {{ react_component('Hello', { name: 'MarieH' }) }}>Loading... <i class="fas fa-cog fa-spin fa-3x"></i></div>
        
         <a href="#">CTA Catalog</a>
