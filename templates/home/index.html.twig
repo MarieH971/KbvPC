@@ -1,16 +1,21 @@
 {% extends 'basicPage.html.twig' %}
 
-{% block title %}HOME{% endblock %}
+{% block title %}Karukera Beach volley Guadeloupe{% endblock %}
 
 {% block page_header %}
 
         {{ parent() }}
-        <h1>HOME</h1>
-
+        <div id="imagePrincipale">
+                <h1>KARUKERA
+	        <br/>
+	        BEACH VOLLEY</h1>
+        <div id="premierTrait"></div>
+		<h3>LE BEACH VOLLEY AU FEMININ</h3>
+	</div>
 {% endblock %}
 
 {% block page_main %}
-        <p>Content<p>
+        <h3 class="laUne">À LA UNE !</h3>
         <div {{ react_component('Hello', { name: 'MarieH' }) }}>Loading... <i class="fas fa-cog fa-spin fa-3x"></i></div>
        
         <a href="#">CTA Catalog</a>
