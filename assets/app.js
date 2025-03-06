@@ -3,37 +3,28 @@ import ReactDOM from 'react-dom';
 import { registerReactControllerComponents } from '@symfony/ux-react';
 import './bootstrap.js';
 
-
-
-
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
-
-// any CSS you import will output into a single css file (app.css in this case)
+// Importer le fichier CSS
 import './styles/app.css';
 
-registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
-
-
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// Importer les composants
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  // Utilisation de Routes au lieu de Switch
 import Inscription from './react/controllers/Inscription.jsx';
 import Catalogue from './react/controllers/Catalogue.jsx';
 import Actualites from './react/controllers/Actualites.jsx';
+import FormulaireAdhesion from './react/controllers/FormulaireAdhesion.jsx';  // Assurez-vous que ce composant existe
+
+// Enregistrer les composants React pour Symfony UX
+registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
 
 ReactDOM.render(
     <Router>
-        <Switch>
-            {/* Route pour la page d'inscription */}
-            <Route path="/inscription" component={Inscription} />
-            {/* Route pour la page Catalogue */}
-            <Route path="/catalog" component={Catalogue} />
-            {/* Route pour la page Actualites */}
-            <Route path="/actualites" component={Actualites} />
-        </Switch>
+        <Routes>
+            {/* Définition des routes */}
+            <Route path="/inscription" element={<Inscription />} />
+            <Route path="/catalog" element={<Catalogue />} />
+            <Route path="/actualites" element={<Actualites />} />
+            <Route path="/adhesion" element={<FormulaireAdhesion />} /> {/* Ajout de la route pour le formulaire d'adhésion */}
+        </Routes>
     </Router>,
     document.getElementById('root') // Assurez-vous que cet ID correspond à l'élément HTML dans Twig
 );
