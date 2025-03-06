@@ -22,6 +22,7 @@ registerReactControllerComponents(require.context('./react/controllers', true, /
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Inscription from './react/controllers/Inscription.jsx';
 import Catalogue from './react/controllers/Catalogue.jsx';
+import Actualites from './react/controllers/Actualites.jsx';
 
 ReactDOM.render(
     <Router>
@@ -30,7 +31,8 @@ ReactDOM.render(
             <Route path="/inscription" component={Inscription} />
             {/* Route pour la page Catalogue */}
             <Route path="/catalog" component={Catalogue} />
-
+            {/* Route pour la page Actualites */}
+            <Route path="/actualites" component={Actualites} />
         </Switch>
     </Router>,
     document.getElementById('root') // Assurez-vous que cet ID correspond à l'élément HTML dans Twig
