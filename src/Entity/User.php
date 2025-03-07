@@ -7,9 +7,13 @@ use App\Enum\Level;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+#[UniqueEntity(fields: ['email'], message: 'An account already exists with this email')]
+class User implements UserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,7 +32,13 @@ class User
     #[ORM\Column(length: 15)]
     private ?string $phone = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 100, unique: true)]
+    #[Assert\NotBlank(message: 'Email is required')]
+    #[Assert\Email(message: 'The email {{ value }} is not a valid email address')]
+    #[Assert\Length(
+        max: 100,
+        maxMessage: 'Email cannot be longer than {{ limit }} characters'
+    )]
     private ?string $email = null;
 
     #[ORM\Column(length: 50)]
@@ -46,7 +56,7 @@ class User
     #[ORM\Column(enumType: Level::class)]
     private ?Level $level;
 
-    
+
 
     public function getId(): ?int
     {
@@ -165,7 +175,7 @@ class User
         return $this->userRole ? $this->userRole->value : '';  // Renvoie la valeur (par exemple 'Adhérent', 'Admin')
     }
     public function getUserRoleValue(): string
-    
+
     {
         return $this->userRole ? $this->userRole->value : '';
     }
@@ -182,5 +192,18 @@ class User
         return $this;
     }
 
-    
+    public function getRoles(): array
+    {
+        return [$this->getUserRole()->name];
+    }
+
+    public function eraseCredentials(): void
+    {
+        // do nothing
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->email;
+    }
 }
