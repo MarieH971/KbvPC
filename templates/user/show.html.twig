@@ -32,10 +32,6 @@
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-            <tr>
                 <th>DateOfBirth</th>
                 <td>{{ user.dateOfBirth ? user.dateOfBirth|date('Y-m-d') : '' }}</td>
             </tr>
@@ -45,20 +41,16 @@
             </tr>
             <tr>
                 <th>UserRole</th>
-                <td>{{ user.userRole }}</td>
+                <td>{{ user.userRole.value }}</td>
             </tr>
             <tr>
                 <th>Level</th>
-                <td>{{ user.level }}</td>
-            </tr>
-            <tr>
-                <th>ConfirmPassword</th>
-                <td>{{ user.confirmPassword }}</td>
+                <td>{{ user.level.value }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    <a href="{{ path('app_user_list') }}">back to list</a>
 
     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
 
