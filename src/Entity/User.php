@@ -92,7 +92,7 @@ class User implements UserInterface
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): static
+    public function setPhoto(?string $photo): static
     {
         $this->photo = $photo;
 
@@ -169,15 +169,6 @@ class User implements UserInterface
         $this->userRole = $userRole;
 
         return $this;
-    }
-    public function getUserRoleAsString(): string
-    {
-        return $this->userRole ? $this->userRole->value : '';  // Renvoie la valeur (par exemple 'Adhérent', 'Admin')
-    }
-    public function getUserRoleValue(): string
-
-    {
-        return $this->userRole ? $this->userRole->value : '';
     }
 
     public function getLevel(): ?Level
