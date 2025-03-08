@@ -29,7 +29,7 @@ class UserController extends AbstractController
     {
         $user = new User();
         $action = $this->generateUrl('app_user_new');
-        return $this->handleForm($entityManager, $request, $action, $user, 'list');
+        return $this->handleForm($entityManager, $request, $action, $user, 'app_user_list');
     }
 
     #[Route('/{id}', name: 'show', methods: ['GET'])]
@@ -44,7 +44,7 @@ class UserController extends AbstractController
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
         $action = $this->generateUrl('app_user_edit', ['id' => $user->getId()]);
-        return $this->handleForm($entityManager, $request, $action, $user, 'list');
+        return $this->handleForm($entityManager, $request, $action, $user, 'app_user_list');
     }
 
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
@@ -74,7 +74,7 @@ class UserController extends AbstractController
 
             return $redirect
                 ? $this->redirectToRoute($redirect, [], Response::HTTP_SEE_OTHER)
-                : $this->redirectToRoute('list', [], Response::HTTP_SEE_OTHER);
+                : $this->redirectToRoute('app_user_list', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('user/_form.html.twig', [
