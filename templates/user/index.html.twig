@@ -35,9 +35,9 @@
                 <td>{{ user.password }}</td>
                 <td>{{ user.dateOfBirth ? user.dateOfBirth|date('Y-m-d') : '' }}</td>
                 <td>{{ user.registrationDate ? user.registrationDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.getUserRoleAsString() }}</td>
-                <td>{{ user.level }}</td>
-                
+                <td>{{ user.userRole.value }}</td>
+                <td>{{ user.level.value }}</td>
+
                 <td>
                     <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
