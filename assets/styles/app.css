@@ -1,3 +1,33 @@
-body {
-    background-color: lightgray;
-}
+.catalogue-container {
+    padding: 20px;
+  }
+  
+  .catalogue-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .catalogue-item {
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .catalogue-item img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .catalogue-item h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .catalogue-item p {
+    font-size: 0.9rem;
+    color: #666;
+  }

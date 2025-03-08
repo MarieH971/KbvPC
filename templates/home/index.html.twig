@@ -1,19 +1,79 @@
 {% extends 'basicPage.html.twig' %}
 
-{% block title %}HOME{% endblock %}
+
+
+{% block title %}Karukera Beach volley Guadeloupe{% endblock %}
 
 {% block page_header %}
 
         {{ parent() }}
-        <h1>HOME</h1>
+        <div id="imagePrincipale">
+                <h1>KARUKERA
+	        <br/>
+	        BEACH VOLLEY</h1>
+        <div id="premierTrait"></div>
+		<h3>LE BEACH VOLLEY AU FEMININ</h3>
+	</div>
+{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    
 {% endblock %}
 
 {% block page_main %}
-        <p>Content<p>
-        <div {{ react_component('Hello', { name: 'MarieH' }) }}>Loading... <i class="fas fa-cog fa-spin fa-3x"></i></div>
+        <h3 class="laUne">À LA UNE !</h3>
+        <div class="containerUne">
+        <img src="https://fakeimg.pl/710x400/ff0000/">
+        </div>
+        <p>" Le Championnat BEACH-VOLLEY 2024/2025 est toujours en cours ! "</p>
+        <p> Ci-dessous le lien pour vous inscrire à l'association 🖣 </p>
+        
+        
+        <button class="buttonInsc" type="button" onclick="window.location.href='{{ path('app_inscription') }}';">INSCRIPTION A L'ASSOCIATION</button>
+  
+        <div id="autreTrait"></div>
+
+        <h3 >NOS ACTIVITÉS</h3>
+        <div class="imgActivites">
+        <img src="https://fakeimg.pl/360x360/">
+        <img src="https://fakeimg.pl/360x360/">
+        <img src="https://fakeimg.pl/360x360/">
+        <img src="https://fakeimg.pl/360x360/">
+        </div>
+        <div class="buttActivites">
+        <button class="homeActivites" type="button">JEU LIBRE</button>
+        <button class="homeActivites" type="button">ENTRAÎNEMENTS</button>
+        <button class="homeActivites" type="button">COMPETITIONS</button>
+        <button class="homeActivites" type="button">SPORT SANTÉ</button>
+        </div>
+        
+        <div id="autreTrait"></div>
+
+        <h3 >ACTUALITÉS</h3>
        
-        <a href="#">CTA Catalog</a>
+        <p>" Toutes les activités auxquelles nous avons participés cette saison "</p>
+        <p>ACTIVITÉS A VENIR !</p>
+        <div class="soon">
+                <ul>
+                        <li>Tournoi de la Ligue du 09 Mars 2024</li>
+                        <li>Tournoi Karukera Beach Volley du 07 Juillet 2024</li>
+                </ul>
+        </div>
+
+        <div id="autreTrait"></div>
+
+        <h3 >NOS PARTENAIRES</h3>
+
+        <div class="partenaires">
+                <img src="https://fakeimg.pl/150/">
+                <img src="https://fakeimg.pl/150/">
+                <img src="https://fakeimg.pl/150/">
+                <img src="https://fakeimg.pl/150/">
+                <img src="https://fakeimg.pl/150/">
+                <img src="https://fakeimg.pl/150/">
+        </div>
+
 
 {% endblock %}
 

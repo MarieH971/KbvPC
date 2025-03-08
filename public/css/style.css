@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Orbitron&display=swap');
+body{
+    font-family:'Chakra Petch',sans-serif;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    padding-top: 60px;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style-type: none;
+}
+h2{
+    text-transform: uppercase;
+    padding-top: 30px;
+    font-size: 2em;
+}
+a{
+    text-decoration: none;
+    color:rgb(193, 18, 108);
+}
+
+
+/* *******************************NAVBAR************************** */
+nav{
+overflow: hidden;
+background-color: rgb(169, 176, 230);
+position: fixed;
+top: 0 !important;
+left: 0 !important;
+width: 100%;
+opacity: 1;
+padding: 15px;
+}
+
+
+.links a{
+    padding-left: 40px;
+}
+#logo{
+    font-family: 'Orbiton', cursive;
+    font-weight: bold;
+    float: left;
+}
+
+
+
+/* *****************IMAGE PRINCIPALE******************** */
+#imagePrincipale{
+    padding-top: 60px;
+    background: url(/media/coucher_soleil.jpg) no-repeat fixed 50% 50%;
+    
+    background-size: cover;
+    height: 699px;
+}
+h1{
+    font-family: 'Chakra Petch', cursive;
+    text-align: center;
+    color: rgb(138, 82, 10);
+    font-size: 6em;
+    margin-top: 100px;
+    text-shadow: 1px 3px 2px black;
+}
+#premierTrait{
+    height: 3px;
+    width: 25%;
+    margin: -3px auto;
+    background-color: beige;
+    box-shadow: 1px 3px 2px black;
+}
+h3{
+    color:rgb(193, 18, 108);
+    font-size: 2em;
+    text-shadow: 1px 3px 2px black;
+}
+
+.buttonInsc{
+    background: rgb(169, 176, 230) ;
+    color: rgb(193, 18, 108) ;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#autreTrait{
+    height: 3px;
+    width: 70%;
+    margin: 20px auto;
+    background-color: black;
+    
+}
+
+.buttActivites{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.homeActivites{
+    background: rgb(169, 176, 230) ;
+    color: rgb(193, 18, 108) ;
+    padding: 10px;
+    border-radius: 8px;
+
+}
+
+
+
+.soon{
+    background: lightslategray;
+    width: 40%;
+    justify-self: center;
+}
+
+.partenaires{
+    padding-bottom: 40px;
+}
+
+.partenaires img{
+   padding-right: 10px;
+}
+
+
+#presentation{
+    background-color:rgb(204, 227, 219);
+    padding: 10px 0px 100px 0;
+}
+#textIntro{
+    padding: 0px 20%;
+}
+#outils{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 10%;
+}
+h5{
+    font-family: 'Chakra Petch',cursive;
+    text-align: left;
+    font-size: 3em;
+    margin: 100px 50px;
+    font-weight: 300;
+}
+.imagesOutils h4{
+    font-family: 'Chakra Petch',cursive;
+    font-size: 1.8em;
+    margin: 15px;
+    font-weight: 300;
+}
+.imagesOutils img{
+    border-radius: 10px;
+    box-shadow: 5px 5px 3px 1px rgba(0, 0, 0, 0.7);
+}
+.imagesOutils img:hover{
+    opacity: 0.5;
+    transform: scale(1.05);
+    transition: 0.6s ease-in-out;
+}
+/* *******************TOURISME************************* */
+#tourisme{
+    /* height: 400px; */
+    background-color: skyblue;
+    padding: 1px 2%;
+    /* display: flex; */
+}
+/* #tourisme h2{
+    padding-top: 60px;
+} */
+
+/* .lieux{
+    min-height: 200px;
+} */
+#datcha{
+    background: url(/media/Datcha.JPG) no-repeat 60px 60px;
+    height: 200px;
+}
+#bourg{
+    background: url(/media/plage_bourg_ste_anne.jpg) no-repeat ;
+}
+#grandeAnse{
+    background: url(/media/grde_anse.jpg) no-repeat ;
+}
+/* #tourisme li{
+    margin: 65px 100px 0 100px;
+    height: 226px;
+    width: 55%;
+    max-width: 550px;
+    float: left;
+    box-shadow: 6px 6px 28px -1px rgba(0, 0, 0, 0.75);
+} */
+.sable{
+    background: url(/media/plage_sable.jpg) cover;
+    width: 60px;
+    height: 60px;
+}
+.endPart{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .end{
+    width: 100%;
+    display: block;
+} */
+form{
+    width: 50%;
+}
+
+/******************FOOTER***************/
+
+.footer{
+    background-color: rgb(169, 176, 230);
+    padding: 10px 10px 0 10px;
+    
+}
+#copyrightEtIcons{
+    display: flex;
+    justify-content: space-between;
+}
