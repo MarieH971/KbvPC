@@ -55,6 +55,13 @@ padding: 15px;
     
     background-size: cover;
     height: 699px;
+
+    /* Flexbox pour aligner les éléments */
+    display: flex;
+    flex-direction: column; /* Empêche les éléments d'être en ligne */
+    justify-content: flex-start; /* Aligne les éléments en haut de la div */
+    align-items: flex-start; /* Aligne les éléments à gauche par défaut */
+    position: relative; /*Nécessaire pour positionner le bouton "Se connecter" */ 
 }
 h1{
     font-family: 'Chakra Petch', cursive;
@@ -76,6 +83,27 @@ h3{
     font-size: 2em;
     text-shadow: 1px 3px 2px black;
 }
+
+.btn-connecter {
+    position: absolute; /* Positionnement absolu dans le conteneur parent */
+    top: 20px; /* Distance du haut de la div */
+    right: 20px; /* Distance du côté droit de la div */
+    padding: 10px 20px; /* Padding du bouton */
+    background-color: rgb(193, 18, 108); /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none;
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 1.2em; /* Taille du texte */
+    cursor: pointer; /* Curseur en forme de main */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Ombre portée */
+    transition: background-color 0.3s ease; /* Transition pour le hover */
+}
+
+.btn-connecter:hover {
+    background-color: rgb(138, 82, 10); /* Couleur du bouton au survol */
+}
+
+
 
 .buttonInsc{
     background: rgb(169, 176, 230) ;

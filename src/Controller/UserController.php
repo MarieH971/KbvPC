@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Password\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -25,11 +27,11 @@ class UserController extends AbstractController
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, User $user, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
         $action = $this->generateUrl('app_user_new');
-        return $this->handleForm($entityManager, $request, $action, $user, 'app_user_list');
+        return $this->handleForm($request, $entityManager, $passwordHasher, $action, $user, 'app_user_list');
     }
 
     #[Route('/{id}', name: 'show', methods: ['GET'])]
@@ -41,10 +43,10 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, User $user, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $action = $this->generateUrl('app_user_edit', ['id' => $user->getId()]);
-        return $this->handleForm($entityManager, $request, $action, $user, 'app_user_list');
+        return $this->handleForm($request, $entityManager, $passwordHasher, $action, $user, 'app_user_list');
     }
 
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
@@ -59,20 +61,28 @@ class UserController extends AbstractController
     }
 
     protected function handleForm(
-        EntityManagerInterface $entityManager,
         Request $request,
+        EntityManagerInterface $entityManager,
+        UserPasswordHasherInterface $passwordHasher,
         string $action,
         User $user,
-        ?string $redirect = null
+        ?string $redirect = null,
+        
     ): Response {
         $form = $this->createForm(UserType::class, $user, ['action' => $action, 'method' => 'POST']);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $plainPassword = $user->getPassword();
+            $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);
+            $user->setPassword($hashedPassword);
+            
+
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $redirect
+                    
+        return $redirect
                 ? $this->redirectToRoute($redirect, [], Response::HTTP_SEE_OTHER)
                 : $this->redirectToRoute('app_user_list', [], Response::HTTP_SEE_OTHER);
         }

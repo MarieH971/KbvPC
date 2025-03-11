@@ -12,8 +12,13 @@ final class HomeController extends AbstractController
     public function index(): Response
     {
         
-        return $this->render('home/index.html.twig', [
-            'name' => 'Marie-Hélène',
-        ]);
+        // Si l'utilisateur est déjà connecté, vous pouvez directement rediriger vers la page d'accueil
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_home');
+        }
+
+        // Sinon, simplement afficher la vue de la page d'accueil
+        return $this->render('home/index.html.twig');
     }
 }
+

@@ -1,0 +1,39 @@
+
+
+
+
+
+{% block title %}Se connecter{% endblock %}
+
+{% block main %}
+    <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, 
+                <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+        {# Affichage du formulaire Symfony #}
+        {{ form_row(form.email) }}
+        {{ form_row(form.password) }}
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}">
+
+        {# Si vous souhaitez activer "remember me" : #}
+        {# {{ form_row(form._remember_me) }} #}
+
+        <button class="btn btn-lg btn-primary" type="submit">
+            Sign in
+        </button>
+    </form>
+{% endblock %}
