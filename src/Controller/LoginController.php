@@ -3,10 +3,15 @@
 namespace App\Controller;
 
 use App\Form\LoginType;
+use App\Entity\User;
 
+
+// use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 
@@ -14,31 +19,52 @@ use Symfony\Component\Routing\Attribute\Route;
 final class LoginController extends AbstractController
 {
     #[Route('/login', name: 'app_login')]
-    public function login(Request $request, AuthenticationUtils $authenticationUtils)
+    public function login(
+        Request $request, 
+        AuthenticationUtils $authenticationUtils, 
+        EntityManagerInterface $entityManager
+    )
     {
+        // Si l'utilisateur est déjà connecté, redirection vers la page d'accueil avec un message
         if ($this->getUser()) {
-            $this->addFlash('success', 'Vous êtes déjà connecté, vous allez être redirigé vers la page d\'accueil.');
+            $this->addFlash('success', 'Vous êtes déjà connecté !');
             return $this->redirectToRoute('app_home');
         }
 
-
-        // Créer le formulaire de connexion
+        // Créer et traiter le formulaire de connexion
         $form = $this->createForm(LoginType::class);
+        $form->handleRequest($request);
 
-        // Récupérer les erreurs éventuelles
+        // Récupérer les erreurs éventuelles et le dernier email saisi
         $error = $authenticationUtils->getLastAuthenticationError();
-
-        // Récupérer le dernier email saisi
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        // Si le formulaire est soumis et valide, gérer la connexion
+        // Si le formulaire est soumis et valide
         if ($form->isSubmitted() && $form->isValid()) {
-            // Il n'est généralement pas nécessaire de traiter directement la connexion
-            // puisque Symfony gère la redirection après une soumission valide
-            return $this->redirectToRoute('app_home'); // Modifier avec la route après connexion
+            // Récupérer les données du formulaire
+            $data = $form->getData();
+            $email = $data['email'];
+            $password = $data['password'];
+
+            // Rechercher l'utilisateur dans la base de données
+            $user = $entityManager->getRepository(User::class)->findOneByEmail($email);
+
+            // Vérifier si l'utilisateur existe
+            if (!$user) {
+                $this->addFlash('error', 'Aucun utilisateur trouvé avec cet email.');
+            } else {
+                // Vérifier si le mot de passe est correct
+                $passwordHasher = $this->container->get('security.password_hasher');
+                if ($passwordHasher->isPasswordValid($user, $password)) {
+                    // Redirection vers la page d'accueil si les informations sont correctes
+                    return $this->redirectToRoute('app_home');
+                } else {
+                    $this->addFlash('error', 'Le mot de passe est incorrect.');
+                }
+            }
         }
 
-        // Rendu du formulaire de connexion avec erreurs et le dernier email
+        // Afficher le formulaire de connexion avec erreurs et le dernier email saisi
         return $this->render('login/login.html.twig', [
             'form' => $form->createView(),
             'last_username' => $lastUsername,
