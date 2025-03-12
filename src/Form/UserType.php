@@ -55,14 +55,14 @@ class UserType extends AbstractType
                 ),
                 'choice_label' => fn(Level $level) => $level->value,
                 'placeholder'  => 'Choisissez le niveau',
-            ]);
+            ])
 
-            
+           ;
 
             // ->add('submit', SubmitType::class, ['label' => 'S\'inscrire']);
         
 
-    }
+        }
 
     public function configureOptions(OptionsResolver $resolver): void
     {

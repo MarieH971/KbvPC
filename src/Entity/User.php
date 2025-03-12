@@ -52,7 +52,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?\DateTimeImmutable $registrationDate = null;
 
-    #[ORM\Column(enumType: UserRole::class)]
+    #[ORM\Column(enumType: UserRole::class, nullable: true)]
     private ?UserRole $userRole;
 
     #[ORM\Column(enumType: Level::class)]
