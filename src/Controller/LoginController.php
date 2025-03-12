@@ -6,7 +6,7 @@ use App\Form\LoginType;
 use App\Entity\User;
 
 
-// use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

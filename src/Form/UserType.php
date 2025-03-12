@@ -55,20 +55,12 @@ class UserType extends AbstractType
                 ),
                 'choice_label' => fn(Level $level) => $level->value,
                 'placeholder'  => 'Choisissez le niveau',
-            ])
+            ]);
 
-            ->add('userRole', ChoiceType::class, [
-                'label'        => 'Role',
-                'choices'      => array_combine(
-                    array_map(fn($role) => $role->value, UserRole::cases()),
-                    UserRole::cases()
-                ),
-                'choice_label' => fn(UserRole $role) => $role->value,
-                'placeholder'  => 'Choisissez le role',
-            ])
+            
 
             // ->add('submit', SubmitType::class, ['label' => 'S\'inscrire']);
-        ;
+        
 
     }
 
