@@ -19,11 +19,7 @@ use Symfony\Component\Routing\Attribute\Route;
 final class LoginController extends AbstractController
 {
     #[Route('/login', name: 'app_login')]
-    public function login(
-//        Request $request,
-        AuthenticationUtils $authenticationUtils,
-        EntityManagerInterface $entityManager
-    )
+    public function login(AuthenticationUtils $authenticationUtils)
     {
         // Si l'utilisateur est déjà connecté, redirection vers la page d'accueil avec un message
         if ($this->getUser()) {
@@ -31,28 +27,16 @@ final class LoginController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        // Créer et traiter le formulaire de connexion
-       $form = $this->createForm(LoginType::class);
-//        $form->handleRequest($request);
-
+      
         // Récupérer les erreurs éventuelles et le dernier email saisi
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        // Si le formulaire est soumis et valide
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Récupérer les données du formulaire
-            $data = $form->getData();
-            $email = $data['email'];
-            $password = $data['password'];
-
-            
-
-                    }
+      
+                    
 
         // Afficher le formulaire de connexion avec erreurs et le dernier email saisi
         return $this->render('login/login.html.twig', [
-//            'form' => $form->createView(),
             'last_username' => $lastUsername,
             'error' => $error,
         ]);
