@@ -22,7 +22,7 @@ final class LoginController extends AbstractController
     public function login(
         Request $request, 
         AuthenticationUtils $authenticationUtils, 
-        EntityManagerInterface $entityManager
+        
     )
     {
         // Si l'utilisateur est déjà connecté, redirection vers la page d'accueil avec un message
@@ -46,23 +46,9 @@ final class LoginController extends AbstractController
             $email = $data['email'];
             $password = $data['password'];
 
-            // Rechercher l'utilisateur dans la base de données
-            $user = $entityManager->getRepository(User::class)->findOneByEmail($email);
+            
 
-            // Vérifier si l'utilisateur existe
-            if (!$user) {
-                $this->addFlash('error', 'Aucun utilisateur trouvé avec cet email.');
-            } else {
-                // Vérifier si le mot de passe est correct
-                $passwordHasher = $this->container->get('security.password_hasher');
-                if ($passwordHasher->isPasswordValid($user, $password)) {
-                    // Redirection vers la page d'accueil si les informations sont correctes
-                    return $this->redirectToRoute('app_home');
-                } else {
-                    $this->addFlash('error', 'Le mot de passe est incorrect.');
-                }
-            }
-        }
+                    }
 
         // Afficher le formulaire de connexion avec erreurs et le dernier email saisi
         return $this->render('login/login.html.twig', [
