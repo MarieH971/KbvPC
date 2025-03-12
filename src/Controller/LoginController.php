@@ -7,6 +7,7 @@ use App\Entity\User;
 
 
 // use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,8 +24,7 @@ final class LoginController extends AbstractController
 //        Request $request,
         AuthenticationUtils $authenticationUtils,
         EntityManagerInterface $entityManager
-    )
-    {
+    ): Response {
         // Si l'utilisateur est déjà connecté, redirection vers la page d'accueil avec un message
         if ($this->getUser()) {
             $this->addFlash('success', 'Vous êtes déjà connecté !');
