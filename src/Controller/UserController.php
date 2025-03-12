@@ -13,7 +13,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/', name: 'app_user_')]
+#[Route('user/', name: 'app_user_')]
 class UserController extends AbstractController
 {
     #[Route('/list', name: 'list', methods: ['GET'])]
@@ -67,7 +67,7 @@ class UserController extends AbstractController
         string $action,
         User $user,
         ?string $redirect = null,
-        
+
     ): Response {
         $form = $this->createForm(UserType::class, $user, ['action' => $action, 'method' => 'POST']);
         $form->handleRequest($request);
@@ -76,12 +76,12 @@ class UserController extends AbstractController
             $plainPassword = $user->getPassword();
             $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);
             $user->setPassword($hashedPassword);
-            
+
 
             $entityManager->persist($user);
             $entityManager->flush();
 
-                    
+
         return $redirect
                 ? $this->redirectToRoute($redirect, [], Response::HTTP_SEE_OTHER)
                 : $this->redirectToRoute('app_user_list', [], Response::HTTP_SEE_OTHER);
