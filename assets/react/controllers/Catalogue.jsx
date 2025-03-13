@@ -4,10 +4,10 @@ import '../../styles/app.css'
 const Catalogue = () => {
   // Tableau d'articles
   const articles = [
-    { id: 1, name: 'Article 1', image: 'https://via.placeholder.com/150', description: 'Description de l\'article 1' },
-    { id: 2, name: 'Article 2', image: 'https://via.placeholder.com/150', description: 'Description de l\'article 2' },
-    { id: 3, name: 'Article 3', image: 'https://via.placeholder.com/150', description: 'Description de l\'article 3' },
-    { id: 4, name: 'Article 4', image: 'https://via.placeholder.com/150', description: 'Description de l\'article 4' },
+    { id: 1, name: 'Short Azura', image: '/media/BKShortsWeb.jpg', description: 'Design moderne et fonctionnel - Tissu technique à séchage rapide' },
+    { id: 2, name: 'Brassière Horizon', image: '/media/BrassiereBleueWeb.jpg', description: 'Confortable et performant - Tissu respirant à séchage rapide' },
+    { id: 3, name: 'Brassière Pop', image: '/media/BrassiereMultiWeb.jpg', description: 'Design minimaliste avec un maintien maximal - Dos ouvert pour un bronzage parfait' },
+    { id: 4, name: 'Short Gwada', image: '/media/ShortsMultiWeb.jpg', description: 'Maille intégrée pour le nettoyage des mains - Coupe ergonomique pour une liberté de mouvement maximale' },
     // Ajoute plus d'articles ici si nécessaire
   ];
 
