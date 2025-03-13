@@ -1,25 +1,53 @@
-{% extends 'basicPage.html.twig' %}
 
-{% block title %}New User{% endblock %}
+
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block page_header %}
+
+<h1>REJOIGNEZ-NOUS !</h1>
+
+{% endblock %}
 
 {% block page_main %}
-    <h1>Adhésion</h1>
 
-    {# Affichage du formulaire #}
-    {{ form_start(form) }}
-        {{ form_row(form.firstName) }}
-        {{ form_row(form.lastName) }}
-        {{ form_row(form.userRole) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.photo) }}
-        {{ form_row(form.password) }}
-        {{ form_row(form.phone) }}
-        {{ form_row(form.dateOfBirth) }}
-        {{ form_row(form.level) }}
-        {{ form_row(form.registrationDate) }}
-        
-         <button type="submit">S'inscrire</button>
-    {{ form_end(form) }}
+    <div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3>Adhésion à l’association</h3>
+            <p class="blue-text">Enregistrez-vous <\br>Plus que quelques clics pour nous rejoindre...</p>
+            <div class="card">
+                <h5 class="text-center mb-4">KARUKERA BEACH VOLLEY</h5>
+                <form class="form-card" onsubmit="event.preventDefault()">
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Prénom<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Votre prénom" onblur="validate(1)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nom<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Votre nom" onblur="validate(2)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Téléphone<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" onblur="validate(4)"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Mot de passe<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
+                    </div>
+		<div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Date de naissance<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(6)"> </div>
+                    </div>
+		<div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Niveau<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(7)"> </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">VALIDER</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <a href="{{ path('app_user') }}">back to list</a>
+
+    <a href="{{ path('app_home') }}">back to home</a>
+</div>
 {% endblock %}

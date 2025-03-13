@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
-use App\Enum\UserRole;
+
 use App\Enum\Level;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;

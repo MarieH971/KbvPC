@@ -6,7 +6,10 @@
                         {% include "_partials/menu.html.twig" %}
                 {% endblock %}
         </header>
-        <main>{% block page_main %} {% endblock %} </main>
+        <main>
+        
+        {% block page_main %}{% endblock %}
+        </main>
         <footer>
                 {% block page_footer %}
                         {% include "_partials/footer.html.twig" %}

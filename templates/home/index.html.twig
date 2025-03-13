@@ -31,7 +31,8 @@
 {% block page_main %}
     <h3 class="laUne">À LA UNE !</h3>
     <div class="containerUne">
-        <img src="https://fakeimg.pl/710x400/ff0000/">
+        <img src="{{ asset('/media/frontCardWeb.jpg') }}" alt="affiche beach volley">
+        
     </div>
     <p>" Le Championnat BEACH-VOLLEY 2024/2025 est toujours en cours ! "</p>
     <p> Ci-dessous le lien pour vous inscrire à l'association 🖣 </p>
@@ -45,10 +46,10 @@
 
     <h3>NOS ACTIVITÉS</h3>
     <div class="imgActivites">
-        <img src="https://fakeimg.pl/360x360/">
-        <img src="https://fakeimg.pl/360x360/">
-        <img src="https://fakeimg.pl/360x360/">
-        <img src="https://fakeimg.pl/360x360/">
+        <img src="{{ asset('/media/sweWeb.jpg') }}" alt="Swe" width="360" height="360">
+        <img src="{{ asset('/media/sessionTrainingWeb.jpg') }}" alt="training" width="360" height="360">
+        <img src="{{ asset('/media/receptionWeb.jpg') }}" alt="competition" width="360" height="360">
+        <img src="{{ asset('/media/fitnessWeb.jpg') }}" alt="fitness" width="360" height="360">
     </div>
     <div class="buttActivites">
         <button class="homeActivites" type="button">JEU LIBRE</button>
@@ -75,12 +76,13 @@
     <h3>NOS PARTENAIRES</h3>
 
     <div class="partenaires">
-        <img src="https://fakeimg.pl/150/">
-        <img src="https://fakeimg.pl/150/">
-        <img src="https://fakeimg.pl/150/">
-        <img src="https://fakeimg.pl/150/">
-        <img src="https://fakeimg.pl/150/">
-        <img src="https://fakeimg.pl/150/">
+        <img src="{{ asset('/media/FFVBweb.jpg') }}" alt="ffvb" width="150" height="150">
+        <img src="{{ asset('/media/NatiyeWeb.jpg') }}" alt="natiye" width="150" height="150">
+        <img src="{{ asset('/media/LRVBweb.jpg') }}" alt="lrvb" width="150" height="150">
+        
+        <img src="{{ asset('/media/DecathlonWeb.jpg') }}" alt="decathlon" width="150" height="150">
+        <img src="{{ asset('/media/B5web.jpg') }}" alt="B5" width="150" height="150">
+        <img src="/public/media/sweWeb.jpg>
     </div>
 
 {% endblock %}
