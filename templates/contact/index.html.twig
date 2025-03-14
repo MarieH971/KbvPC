@@ -1,0 +1,27 @@
+{% extends 'basicPage.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block page_main %}
+    <h1>Saisissez votre demande</h1>
+
+{{ form_start(form) }}
+
+    {# Afficher les erreurs du formulaire (s'il y en a) #}
+    {{ form_errors(form) }}
+
+    {# Afficher les champs du formulaire avec leurs erreurs individuelles #}
+    {{ form_row(form.firstName) }}
+    {{ form_row(form.lastName) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.phone) }}
+    {{ form_row(form.subject) }}
+    {{ form_row(form.message) }}
+
+    <button type="submit">Envoyer</button>
+
+    {{ form_end(form) }}
+
+
+
+{% endblock %}
