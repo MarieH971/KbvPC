@@ -3,7 +3,7 @@
 {% block title %}Karukera Beach volley Guadeloupe{% endblock %}
 
 {% block page_header %}
-    {{ parent() }}
+    {% include "_partials/menu.html.twig" %}
     <div id="imagePrincipale">
         {% if app.user %}
             <button class="btn-connecter" onclick="window.location.href='{{ path('app_logout') }}';">Se déconnecter
@@ -12,10 +12,11 @@
             <button class="btn-connecter" onclick="window.location.href='{{ path('app_login') }}';">Se connecter
             </button>
         {% endif %}
-
-        <h1>KARUKERA
-            <br/>
-            BEACH VOLLEY</h1>
+        {% include "_partials/flash.html.twig" %}
+        <h1>
+            <div>KARUKERA</div>
+            <div>BEACH VOLLEY</div>
+        </h1>
         <div id="premierTrait"></div>
         <h3>LE BEACH VOLLEY AU FEMININ</h3>
     </div>
@@ -25,7 +26,7 @@
 {% block page_main %}
     <h3 class="laUne">À LA UNE !</h3>
     <div class="containerUne">
-        <img src="{{ asset('/media/frontCardWeb.jpg') }}" alt="affiche beach volley">
+        <img src="{{ asset('build/images/frontCardWeb.jpg') }}" alt="affiche beach volley">
 
     </div>
     <p>" Le Championnat BEACH-VOLLEY 2024/2025 est toujours en cours ! "</p>
@@ -40,10 +41,10 @@
 
     <h3>NOS ACTIVITÉS</h3>
     <div class="imgActivites">
-        <img src="{{ asset('/media/sweWeb.jpg') }}" alt="Swe" width="360" height="360">
-        <img src="{{ asset('/media/sessionTrainingWeb.jpg') }}" alt="training" width="360" height="360">
-        <img src="{{ asset('/media/receptionWeb.jpg') }}" alt="competition" width="360" height="360">
-        <img src="{{ asset('/media/fitnessWeb.jpg') }}" alt="fitness" width="360" height="360">
+        <img src="{{ asset('build/images/sweWeb.jpg') }}" alt="Swe" width="360" height="360">
+        <img src="{{ asset('build/images/sessionTrainingWeb.jpg') }}" alt="training" width="360" height="360">
+        <img src="{{ asset('build/images/receptionWeb.jpg') }}" alt="competition" width="360" height="360">
+        <img src="{{ asset('build/images/fitnessWeb.jpg') }}" alt="fitness" width="360" height="360">
     </div>
     <div class="buttActivites">
         <button class="homeActivites" type="button">JEU LIBRE</button>
@@ -65,20 +66,20 @@
         </ul>
     </div>
 
-     <img src="{{ asset('/media/0903Web.jpg') }}" alt="B5" width="500" height="800" style="padding-top: 20px;">
+     <img src="{{ asset('build/images/0903Web.jpg') }}" alt="B5" width="500" height="800" style="padding-top: 20px;">
 
     <div id="autreTrait"></div>
 
     <h3>NOS PARTENAIRES</h3>
 
     <div class="partenaires">
-        <img src="{{ asset('/media/FFVBweb.jpg') }}" alt="ffvb" width="150" height="150">
-        <img src="{{ asset('/media/NatiyeWeb.jpg') }}" alt="natiye" width="150" height="150">
-        <img src="{{ asset('/media/LRVBweb.jpg') }}" alt="lrvb" width="150" height="150">
+        <img src="{{ asset('build/images/FFVBweb.jpg') }}" alt="ffvb" width="150" height="150">
+        <img src="{{ asset('build/images/NatiyeWeb.jpg') }}" alt="natiye" width="150" height="150">
+        <img src="{{ asset('build/images/LRVBweb.jpg') }}" alt="lrvb" width="150" height="150">
 
-        <img src="{{ asset('/media/DecathlonNewWeb.jpg') }}" alt="decathlon" width="150" height="150">
-        <img src="{{ asset('/media/B5web.jpg') }}" alt="B5" width="150" height="150">
-{#        <img src="/public/media/DecathlonNewWeb.jpg>#}
+        <img src="{{ asset('build/images/DecathlonNewWeb.jpg') }}" alt="decathlon" width="150" height="150">
+        <img src="{{ asset('build/images/B5web.jpg') }}" alt="B5" width="150" height="150">
+{#        <img src="/publicbuild/images/DecathlonNewWeb.jpg>#}
     </div>
 
 {% endblock %}

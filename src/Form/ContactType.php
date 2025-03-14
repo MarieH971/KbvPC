@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -17,9 +18,21 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('firstName', TextType::class, [
+                'label' => 'Prénom',  // Label personnalisé pour le champ "Nom"
+                'attr' => [
+                    'placeholder' => 'Entrez votre prénom',  // Ajout d'un placeholder
+                ],
+            ])
+            ->add('lastName', TextType::class, [
                 'label' => 'Nom',  // Label personnalisé pour le champ "Nom"
                 'attr' => [
                     'placeholder' => 'Entrez votre nom',  // Ajout d'un placeholder
+                ],
+            ])
+            ->add('phone', TelType::class, [
+                'label' => 'Téléphone',
+                'attr' => [
+                    'placeholder' => 'Entrez votre phone',  // Ajout d'un placeholder
                 ],
             ])
             ->add('email', EmailType::class, [
@@ -28,16 +41,20 @@ class ContactType extends AbstractType
                     'placeholder' => 'Entrez votre adresse e-mail',  // Ajout d'un placeholder
                 ],
             ])
+            ->add('subject', TextType::class, [
+                'label' => 'Sujet',  // Label personnalisé pour le champ "Email"
+                'attr' => [
+                    'placeholder' => 'Entrez votre sujet',  // Ajout d'un placeholder
+                ],
+            ])
             ->add('message', TextareaType::class, [
                 'label' => 'Message',  // Label personnalisé pour le champ "Message"
                 'attr' => [
                     'placeholder' => 'Votre message',  // Ajout d'un placeholder
                     'rows' => 5,  // Taille du textarea
                 ],
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Envoyer',  // Label personnalisé pour le bouton "Envoyer"
             ]);
+
         }
 
     public function configureOptions(OptionsResolver $resolver): void

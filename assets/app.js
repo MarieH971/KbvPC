@@ -1,30 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { registerReactControllerComponents } from '@symfony/ux-react';
+// symfony ux
 import './bootstrap.js';
 
+// Importer le JavaScript de Bootstrap
+// import 'bootstrap';
+// Importer le CSS de Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // Importer le fichier CSS
-import './styles/app.css';
+import './styles/style.css';
 
-// Importer les composants
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  // Utilisation de Routes au lieu de Switch
+import { registerReactControllerComponents } from '@symfony/ux-react';
 
-import Catalogue from './react/controllers/Catalogue.jsx';
-import Actualites from './react/controllers/Actualites.jsx';
- 
-
-// Enregistrer les composants React pour Symfony UX
 registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
-
-ReactDOM.render(
-    <Router>
-        <Routes>
-            {/* Définition des routes */}
-            
-            <Route path="/catalog" element={<Catalogue />} />
-            <Route path="/actualites" element={<Actualites />} />
-            
-        </Routes>
-    </Router>,
-    document.getElementById('root') // Assurez-vous que cet ID correspond à l'élément HTML dans Twig
-);

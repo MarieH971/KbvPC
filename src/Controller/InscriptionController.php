@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Enum\UserRole;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,20 +31,15 @@ final class InscriptionController extends AbstractController
     ): Response
     {
         $user = new User();
-        $action = $this->generateUrl('app_user_new');
-        return $this->handleForm($request, $entityManager, $passwordHasher, $action, $user, 'app_user_list');
-    }
+        $user->setUserRole(UserRole::ROLE_USER);
+        $user->setRegistrationDate(new \DateTimeImmutable('now'));
 
-    protected function handleForm(
-        Request $request,
-        EntityManagerInterface $entityManager,
-        UserPasswordHasherInterface $passwordHasher,
-        string $action,
-        User $user,
-        ?string $redirect = null,
 
-    ): Response {
-        $form = $this->createForm(UserType::class, $user, ['action' => $action, 'method' => 'POST']);
+        $form = $this->createForm(UserType::class, $user, [
+            'action' => $this->generateUrl('app_inscription_form'),
+            'method' => 'POST'
+        ]);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -56,14 +52,13 @@ final class InscriptionController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Super c\'est bon');
 
-            return $redirect
-                ? $this->redirectToRoute($redirect, [], Response::HTTP_SEE_OTHER)
-                : $this->redirectToRoute('app_user_list', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('inscription/formulaire.html.twig', [
-            'form' => $form->createView(),
+            'form' => $form,
             'user' => $user,
         ]);
     }

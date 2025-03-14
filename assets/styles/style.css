@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Orbitron&display=swap');
 body{
-    font-family:'Chakra Petch',sans-serif;
+    font-family: sans-serif;
     padding: 0;
     margin: 0;
     text-align: center;
@@ -41,7 +41,7 @@ padding: 15px;
     padding-left: 40px;
 }
 #logo{
-    font-family: 'Orbiton', cursive;
+    font-family: 'Orbiton', sans-serif;
     font-weight: bold;
     float: left;
 }
@@ -51,8 +51,8 @@ padding: 15px;
 /* *****************IMAGE PRINCIPALE******************** */
 #imagePrincipale{
     padding-top: 60px;
-    background: url(/media/coucher_soleil.jpg) no-repeat fixed 50% 50%;
-    
+    background: url(../images/coucher_soleil.jpg) no-repeat fixed 50% 50%;
+
     background-size: cover;
     height: 699px;
 
@@ -61,10 +61,10 @@ padding: 15px;
     flex-direction: column; /* Empêche les éléments d'être en ligne */
     justify-content: center; /* Aligne les éléments en haut de la div */
     align-items: center; /* Aligne les éléments à gauche par défaut */
-    position: relative; /*Nécessaire pour positionner le bouton "Se connecter" */ 
+    position: relative; /*Nécessaire pour positionner le bouton "Se connecter" */
 }
 h1{
-    font-family: 'Chakra Petch', cursive;
+    font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     color: rgb(138, 82, 10);
     font-size: 6em;
@@ -116,7 +116,7 @@ h3{
     width: 70%;
     margin: 20px auto;
     background-color: black;
-    
+
 }
 
 .buttActivites{
@@ -140,7 +140,7 @@ h3{
     width: 40%;
     justify-self: center;
     padding: 15px 0;
-   
+
 }
 
 
@@ -168,14 +168,14 @@ h3{
     padding: 30px 10%;
 }
 h5{
-    font-family: 'Chakra Petch',cursive;
+    font-family: 'Chakra Petch',sans-serif;
     text-align: left;
     font-size: 3em;
     margin: 100px 50px;
     font-weight: 300;
 }
 .imagesOutils h4{
-    font-family: 'Chakra Petch',cursive;
+    font-family: 'Chakra Petch',sans-serif;
     font-size: 1.8em;
     margin: 15px;
     font-weight: 300;
@@ -196,35 +196,35 @@ h5{
 .footer{
     background-color: rgb(169, 176, 230);
     /* padding: 30px 10px 0 10px; */
-    
+
 }
 #copyrightEtIcons{
     display: flex;
     justify-content: space-between;
 }
 /*************LOGIN PAGE****************/
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-}
+/*.container {*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	min-height: 100vh;*/
+/*}*/
 
-.screen {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
-	position: relative;	
+.screen {
+	background: linear-gradient(90deg, #5D54A4, #7C78B8);
+	position: relative;
 	height: 600px;
-	width: 360px;	
+	width: 360px;
 	box-shadow: 0px 0px 24px #5C5696;
 }
 
 .screen__content {
 	z-index: 1;
-	position: relative;	
+	position: relative;
 	height: 100%;
 }
 
-.screen__background {		
+.screen__background {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -232,7 +232,7 @@ h5{
 	bottom: 0;
 	z-index: 0;
 	-webkit-clip-path: inset(0 0 0 0);
-	clip-path: inset(0 0 0 0);	
+	clip-path: inset(0 0 0 0);
 }
 
 .screen__background__shape {
@@ -243,18 +243,18 @@ h5{
 .screen__background__shape1 {
 	height: 520px;
 	width: 520px;
-	background: #FFF;	
+	background: #FFF;
 	top: -50px;
-	right: 120px;	
+	right: 120px;
 	border-radius: 0 72px 0 0;
 }
 
 .screen__background__shape2 {
 	height: 220px;
 	width: 220px;
-	background: #6C63AC;	
+	background: #6C63AC;
 	top: -172px;
-	right: 0;	
+	right: 0;
 	border-radius: 32px;
 }
 
@@ -263,16 +263,16 @@ h5{
 	width: 190px;
 	background: linear-gradient(270deg, #5D54A4, #6A679E);
 	top: -24px;
-	right: 0;	
+	right: 0;
 	border-radius: 32px;
 }
 
 .screen__background__shape4 {
 	height: 400px;
 	width: 200px;
-	background: #7E7BB9;	
+	background: #7E7BB9;
 	top: 420px;
-	right: 50px;	
+	right: 50px;
 	border-radius: 60px;
 }
 
@@ -283,8 +283,8 @@ h5{
 }
 
 .login__field {
-	padding: 20px 0px;	
-	position: relative;	
+	padding: 20px 0px;
+	position: relative;
 }
 
 .login__icon {

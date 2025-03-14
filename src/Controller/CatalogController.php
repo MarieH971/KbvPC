@@ -12,7 +12,6 @@ final class CatalogController extends AbstractController
     public function index(): Response
     {
         return $this->render('catalog/catalog.html.twig', [
-            'controller_name' => 'CatalogController',
         ]);
     }
 }

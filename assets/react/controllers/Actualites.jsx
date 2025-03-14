@@ -9,14 +9,14 @@ const Actualites = () => {
 
       <p>Tous nos évènements pour la saison 2024/2025</p>
 
-      
-      <img src="/media/0610Web.jpg" alt="" width="350" height="550"/>
-      <img src="/media/0311Web.jpg" alt="" width="350" height="550"/>
-      <img src="/media/0112Web.jpg" alt="" width="350" height="550"/>
-      <img src="/media/1901Web.jpg" alt="" width="350" height="550"/>
-      <img src="/media/0903Web.jpg" alt="" width="350" height="550"/>
-      
-      
+
+      <img src="/assets/images/0610Web.jpg" alt="" width="350" height="550"/>
+      <img src="/assets/images/0311Web.jpg" alt="" width="350" height="550"/>
+      <img src="/assets/images/0112Web.jpg" alt="" width="350" height="550"/>
+      <img src="/assets/images/1901Web.jpg" alt="" width="350" height="550"/>
+      <img src="/assets/images/0903Web.jpg" alt="" width="350" height="550"/>
+
+
       {/* Tu peux ajouter ici le contenu de tes actualités */}
       <div>
         <h3>Bientôt la fin du championnat !</h3>

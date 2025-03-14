@@ -3,10 +3,10 @@
 {% block title %}CATALOGUE D'ARTICLES{% endblock %}
 
 {% block page_main %}
-        
-        <p>Des modèles pratiques, respirants et colorés<p>
-        <p>Bientôt plus d'articles au catalogue !<p>
-         
-        
+    <div {{ react_component('Catalogue') }}>
+        Loading... <i class="fas fa-cog fa-spin fa-3x"></i>
+    </div>
 
+    <p>Des modèles pratiques, respirants et colorés<p>
+    <p>Bientôt plus d'articles au catalogue !<p>
 {% endblock %}

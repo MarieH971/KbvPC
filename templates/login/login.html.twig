@@ -1,58 +1,59 @@
-
-
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/loginstyle.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {{ encore_entry_link_tags('login') }}
 {% endblock %}
 
+{% block javascripts %}
+    {{ encore_entry_script_tags('login') }}
+{% endblock %}
+
+
 {% block main %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">
-                {{ error.messageKey|trans(error.messageData, 'security') }}
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align: center; font-weight: 300;">Connectez-vous</h1>
+
+    {% if error %}
+        <div class="alert alert-danger text-center">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }},
+            <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" method="post">
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="email" class="form-control login__input" value="{{ last_username }}"
+                               name="_username" id="username" autocomplete="email" required autofocus
+                               placeholder="Email">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="form-control login__input" name="_password" id="password"
+                               autocomplete="current-password" required placeholder="Mot de passe">
+                    </div>
+                    <button class="button login__submit">
+                        <span class="button__text">VALIDER</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                </form>
+
             </div>
-        {% endif %}
-
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }},
-                <a href="{{ path('app_logout') }}">Logout</a>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
             </div>
-        {% endif %}
-
-        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center; font-weight: 300;">Connectez-vous</h1>
-
-        {# Affichage du formulaire Symfony #}
-{#        {{ form_row(form.email) }}#}
-{#        {{ form_row(form.password) }}#}
-
-
-        <div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder=" Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Mot de passe">
-				</div>
-				<button class="button login__submit">
-					<span class="button__text">VALIDER</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
-</div>
+        </div>
+    </div>
 
 {% endblock %}
