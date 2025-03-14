@@ -52,7 +52,7 @@ final class InscriptionController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Super c\'est bon');
+            $this->addFlash('success', 'Votre inscription a été envoyé avec succès !');
 
             return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
         }

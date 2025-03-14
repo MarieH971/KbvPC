@@ -63,11 +63,12 @@ padding: 15px;
     align-items: center; /* Aligne les éléments à gauche par défaut */
     position: relative; /*Nécessaire pour positionner le bouton "Se connecter" */
 }
-h1{
+.titleHome{
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     color: rgb(138, 82, 10);
     font-size: 6em;
+    
     margin-top: 100px;
     text-shadow: 1px 3px 2px black;
 }
@@ -123,6 +124,13 @@ h3{
     margin: 10px;
     display: flex;
     justify-content: space-around;
+}
+
+.reservationSession{
+    background: rgb(169, 176, 230) ;
+    color: rgb(193, 18, 108) ;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .homeActivites{

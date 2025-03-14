@@ -2,12 +2,12 @@
 import './bootstrap.js';
 
 // Importer le JavaScript de Bootstrap
-// import 'bootstrap';
+import 'bootstrap';
 // Importer le CSS de Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Importer le fichier CSS
 import './styles/style.css';
+
 
 import { registerReactControllerComponents } from '@symfony/ux-react';
 

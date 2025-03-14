@@ -13,7 +13,7 @@
             </button>
         {% endif %}
         {% include "_partials/flash.html.twig" %}
-        <h1>
+        <h1 class="titleHome">
             <div>KARUKERA</div>
             <div>BEACH VOLLEY</div>
         </h1>
@@ -52,7 +52,8 @@
         <button class="homeActivites" type="button">COMPETITIONS</button>
         <button class="homeActivites" type="button">SPORT SANTÉ</button>
     </div>
-
+   
+    <div><button class="reservationSession" type="button" onclick="window.location.href='{{ path('app_reservation') }}';">RÉSERVER UNE ACTIVITÉ </button></div>
     <div id="autreTrait"></div>
 
     <h3>ACTUALITÉS</h3>

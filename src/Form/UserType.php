@@ -12,6 +12,7 @@
     use Symfony\Component\Form\FormBuilderInterface;
     use Symfony\Component\OptionsResolver\OptionsResolver;
     use Symfony\Component\Validator\Constraints as Assert;
+    use Symfony\Component\Validator\Constraints\Image;
 
 
     class UserType extends AbstractType
@@ -24,6 +25,15 @@
                 ->add('photo', FileType::class, [
                     'mapped'   => false,
                     'required' => false,
+                    'attr' => [
+                        'accept' => 'image/jpeg, image/png, image/jpg',
+                    ],
+                    'constraints' => [
+            new Image([
+                'maxSize' => '2M',  
+                'mimeTypesMessage' => 'Veuillez télécharger une image au format JPEG, JPG ou PNG.',
+            ]),
+        ],
                 ])
                 ->add('phone')
                 ->add('email', null, [

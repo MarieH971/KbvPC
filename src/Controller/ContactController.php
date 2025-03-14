@@ -25,6 +25,8 @@ final class ContactController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Votre message a été envoyé avec succès !');
+
             return $this->redirectToRoute('app_home', [], Response::HTTP_SEE_OTHER);
 
         }

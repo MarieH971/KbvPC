@@ -15,7 +15,7 @@
 
 {% block page_main %}
     <div class="container">
-        {{ form_start(form) }}
+        {{ form_start(form, {'enctype': 'multipart/form-data'}) }}
         {{ form_errors(form) }}
 
         <div class="row mb-3">
@@ -29,7 +29,9 @@
 
         <div class="row mb-3">
             <div class="col-md-12">
-                {{ form_row(form.photo, {'label': 'Votre photo'}) }}
+                {{ form_label(form.photo,  'Votre photo') }}
+                {{ form_widget(form.photo) }}
+                {{ form_errors(form.photo) }}
             </div>
         </div>
 
@@ -38,23 +40,23 @@
                 {{ form_row(form.email, {'label': 'Votre email'}) }}
             </div>
             <div class="col-md-6">
-                {{ form_row(form.phone, {'label': 'Votre phone'}) }}
+                {{ form_row(form.phone, {'label': 'Votre numéro de téléphone'}) }}
             </div>
         </div>
 
 
         <div class="row mb-3">
             <div class="col-md-6">
-                {{ form_row(form.password, {'label': 'Votre password'}) }}
+                {{ form_row(form.password, {'label': 'Votre mot de passe'}) }}
             </div>
             <div class="col-md-6">
-                {{ form_row(form.dateOfBirth, {'label': 'Votre dateOfBirth'}) }}
+                {{ form_row(form.dateOfBirth, {'label': 'Votre date de naissance'}) }}
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-md-12">
-                {{ form_row(form.level, {'label': 'Votre level'}) }}
+                {{ form_row(form.level, {'label': 'Votre niveau'}) }}
             </div>
         </div>
 
@@ -62,7 +64,7 @@
         <div class="mb-3">
             <div class="col-md-12 text-center">
                 <button class="btn btn-primary mt-5 mb-5" type="submit">
-                    Valider !
+                    Valider 
                 </button>
             </div>
         </div>

@@ -1,0 +1,54 @@
+{% extends 'basicPage.html.twig' %}
+
+{% block title %}Réservation de Session{% endblock %}
+
+{% block page_main %}
+    <h1>Réservation de Session</h1>
+
+    {# Affichage des messages flash pour la confirmation ou erreur #}
+    {% for label, messages in app.flashes %}
+        <div class="alert alert-{{ label }}">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+
+    {# Formulaire de réservation #}
+    <form method="post">
+        {{ form_start(form) }}
+
+        {# Champ pour choisir la session #}
+        <div>
+            <label for="reservation_user">{{ form_label(form.user) }}</label>
+            {{ form_widget(form.user) }}
+            <div class="help-block">{{ form_errors(form.user) }}</div>
+        </div>
+
+        <div>
+            <label for="reservation_session">{{ form_label(form.session) }}</label>
+            {{ form_widget(form.session) }}
+            <div class="help-block">{{ form_errors(form.session) }}</div>
+        </div>
+
+        {# Champ pour choisir la date de création de la réservation #}
+        <div>
+            <label for="reservation_createdAt">{{ form_label(form.createdAt) }}</label>
+            {{ form_widget(form.createdAt) }}
+            <div class="help-block">{{ form_errors(form.createdAt) }}</div>
+        </div>
+
+        {# Champ pour l'utilisateur (qui peut être pré-rempli ou sélectionné dans un menu) #}
+       
+
+        {# Bouton de soumission #}
+        <div>
+            <button type="submit" class="btn btn-primary">Réserver</button>
+        </div>
+
+        {{ form_end(form) }}
+    </form>
+
+{% endblock %}
