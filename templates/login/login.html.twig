@@ -1,15 +1,16 @@
+{% extends 'basicPage.html.twig' %}
+
 {% block stylesheets %}
+    {{ parent() }}
     {{ encore_entry_link_tags('login') }}
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     {{ encore_entry_script_tags('login') }}
 {% endblock %}
-{% block page_header %}
-<link rel="stylesheet" href="{{ asset('build/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/bootstrap.min.css') }}">
-{% endblock %}
-{% block main %}
+
+{% block page_main %}
     <h1 >Connectez-vous</h1>
 
     {% if error %}
@@ -41,10 +42,10 @@
                 </div>
 
                 <form>
-                  
+
 
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="form2Example11" class="form-control value="{{ last_username }}" name="_username" autocomplete="email" 
+                    <input type="email" id="form2Example11" class="form-control value="{{ last_username }}" name="_username" autocomplete="email"
                       placeholder="Votre email" />
                     <label class="form-label" for="form2Example11">Votre Email</label>
                   </div>
@@ -83,6 +84,4 @@
     </div>
   </div>
 </section>
-
-
 {% endblock %}

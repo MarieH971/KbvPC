@@ -1,6 +1,7 @@
 ###> marc uneak galoyer/fichier phpstorm ###
 .idea
 ###< marc uneak galoyer/fichier phpstorm ###
+public/build
 
 ###> symfony/framework-bundle ###
 /.env.local
