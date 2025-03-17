@@ -6,10 +6,18 @@
     {% include "_partials/menu.html.twig" %}
     <div id="imagePrincipale">
         {% if app.user %}
-            <button class="btn-connecter" onclick="window.location.href='{{ path('app_logout') }}';">Se déconnecter
+            <button
+                class="btn-connecter"
+                onclick="window.location.href='{{ path('app_logout') }}';"
+            >
+                Se déconnecter
             </button>
         {% else %}
-            <button class="btn-connecter" onclick="window.location.href='{{ path('app_login') }}';">Se connecter
+            <button
+                class="btn-connecter"
+                onclick="window.location.href='{{ path('app_login') }}';"
+            >
+                Se connecter
             </button>
         {% endif %}
         {% include "_partials/flash.html.twig" %}
@@ -18,42 +26,53 @@
             <div>BEACH VOLLEY</div>
         </h1>
         <div id="premierTrait"></div>
-        <h3>LE BEACH VOLLEY AU FEMININ</h3>
+        <h3 class="py-3">LE BEACH VOLLEY AU FEMININ</h3>
     </div>
 {% endblock %}
 
 
 {% block page_main %}
-    <h3 class="laUne">À LA UNE !</h3>
-    <div class="containerUne">
+    <h3 class="laUne pt-4">À LA UNE !</h3>
+    <div class="containerUne py-3">
         <img src="{{ asset('build/images/frontCardWeb.jpg') }}" alt="affiche beach volley">
-
     </div>
     <p>" Le Championnat BEACH-VOLLEY 2024/2025 est toujours en cours ! "</p>
-    <p> Ci-dessous le lien pour vous inscrire à l'association 🖣 </p>
+    <p>Ci-dessous le lien pour vous inscrire à l'association</p>
 
 
-    <button class="buttonInsc" type="button" onclick="window.location.href='{{ path('app_inscription') }}';">INSCRIPTION
-        A L'ASSOCIATION
+    <button
+        class="buttonInsc my-3"
+        type="button"
+        onclick="window.location.href='{{ path('app_inscription') }}';"
+    >
+        INSCRIPTION A L'ASSOCIATION
     </button>
 
     <div id="autreTrait"></div>
 
-    <h3>NOS ACTIVITÉS</h3>
-    <div class="imgActivites">
-        <img src="{{ asset('build/images/sweWeb.jpg') }}" alt="Swe" width="360" height="360">
-        <img src="{{ asset('build/images/sessionTrainingWeb.jpg') }}" alt="training" width="360" height="360">
-        <img src="{{ asset('build/images/receptionWeb.jpg') }}" alt="competition" width="360" height="360">
-        <img src="{{ asset('build/images/fitnessWeb.jpg') }}" alt="fitness" width="360" height="360">
+    <h3 class="pt-3">NOS ACTIVITÉS</h3>
+    <div class="imgActivites pt-3">
+        <img src="{{ asset('build/images/sweWeb.jpg') }}" alt="Swe">
+        <img src="{{ asset('build/images/sessionTrainingWeb.jpg') }}" alt="training">
+        <img src="{{ asset('build/images/receptionWeb.jpg') }}" alt="competition">
+        <img src="{{ asset('build/images/fitnessWeb.jpg') }}" alt="fitness">
     </div>
-    <div class="buttActivites">
+    <div class="buttActivites pt-4">
         <button class="homeActivites" type="button">JEU LIBRE</button>
         <button class="homeActivites" type="button">ENTRAÎNEMENTS</button>
         <button class="homeActivites" type="button">COMPETITIONS</button>
         <button class="homeActivites" type="button">SPORT SANTÉ</button>
     </div>
-   
-    <div><button class="reservationSession" type="button" onclick="window.location.href='{{ path('app_reservation') }}';">RÉSERVER UNE ACTIVITÉ </button></div>
+
+    <div>
+        <button
+            class="reservationSession mt-4"
+            type="button"
+            onclick="window.location.href='{{ path('app_reservation') }}';"
+        >
+            RÉSERVER UNE ACTIVITÉ
+        </button>
+    </div>
     <div id="autreTrait"></div>
 
     <h3>ACTUALITÉS</h3>
@@ -67,7 +86,7 @@
         </ul>
     </div>
 
-     <img src="{{ asset('build/images/0903Web.jpg') }}" alt="B5" width="500" height="800" style="padding-top: 20px;">
+    <img src="{{ asset('build/images/0903Web.jpg') }}" alt="B5" width="500" height="800" style="padding-top: 20px;">
 
     <div id="autreTrait"></div>
 
@@ -80,7 +99,7 @@
 
         <img src="{{ asset('build/images/DecathlonNewWeb.jpg') }}" alt="decathlon" width="150" height="150">
         <img src="{{ asset('build/images/B5web.jpg') }}" alt="B5" width="150" height="150">
-{#        <img src="/publicbuild/images/DecathlonNewWeb.jpg>#}
+        {#        <img src="/publicbuild/images/DecathlonNewWeb.jpg> #}
     </div>
 
 {% endblock %}
