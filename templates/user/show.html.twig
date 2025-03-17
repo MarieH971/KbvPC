@@ -2,57 +2,77 @@
 
 {% block title %}User{% endblock %}
 
-{% block body %}
-    <h1>User</h1>
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('show') }}
+{% endblock %}
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>FirstName</th>
-                <td>{{ user.firstName }}</td>
-            </tr>
-            <tr>
-                <th>LastName</th>
-                <td>{{ user.lastName }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ user.photo }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ user.phone }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>DateOfBirth</th>
-                <td>{{ user.dateOfBirth ? user.dateOfBirth|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>RegistrationDate</th>
-                <td>{{ user.registrationDate ? user.registrationDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UserRole</th>
-                <td>{{ user.userRole.value }}</td>
-            </tr>
-            <tr>
-                <th>Level</th>
-                <td>{{ user.level.value }}</td>
-            </tr>
-        </tbody>
-    </table>
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('show') }}
+{% endblock %}
 
-    <a href="{{ path('app_user_list') }}">back to list</a>
+{% block page_main %}
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
 
-    {{ include('user/_delete_form.html.twig') }}
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-xl-6 col-md-12">
+                    <div class="card user-card-full">
+                        <div class="row m-l-0 m-r-0">
+                            <!-- Profil -->
+                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                                <div class="card-block text-center text-white">
+                                    <div class="m-b-25">
+                                        <img src="{{ user.photo ? user.photo : 'https://img.icons8.com/bubbles/100/000000/user.png' }}" class="img-radius" alt="User-Profile-Image">
+                                    </div>
+                                    <h6 class="f-w-600">{{ user.firstName }} {{ user.lastName }}</h6>
+                                    <p>{{ user.userRole.value }}</p>
+                                    <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"> Edit</a>
+                                </div>
+                            </div>
+                            <!-- Infos utilisateur -->
+                            <div class="col-sm-8">
+                                <div class="card-block">
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Email</p>
+                                            <h6 class="text-muted f-w-400">{{ user.email }}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Phone</p>
+                                            <h6 class="text-muted f-w-400">{{ user.phone }}</h6>
+                                        </div>
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Additional Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Date of Birth</p>
+                                            <h6 class="text-muted f-w-400">{{ user.dateOfBirth ? user.dateOfBirth|date('Y-m-d') : 'Not provided' }}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Registration Date</p>
+                                            <h6 class="text-muted f-w-400">{{ user.registrationDate ? user.registrationDate|date('Y-m-d H:i:s') : 'Not available' }}</h6>
+                                        </div>
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Level</h6>
+                                    <h6 class="text-muted f-w-400">{{ user.level.value }}</h6>
+                                    <div class="row m-t-20">
+                                        <div class="col-sm-6">
+                                            <a href="{{ path('app_user_list') }}" class="btn btn-primary">Back to list</a>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            {{ include('user/_delete_form.html.twig') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

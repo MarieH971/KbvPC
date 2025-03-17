@@ -135,6 +135,23 @@ h3 {
     justify-content: space-around;
 }
 
+.btn-custom {
+    background: rgb(169, 176, 230);
+    color: rgb(193, 18, 108);
+    padding: 10px ;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer; 
+
+}
+
+.btn-custom:hover, .btn-custom2:hover {
+    background: rgb(150, 160, 210); 
+}
+
+
+
+
 .reservationSession {
     background: rgb(169, 176, 230);
     color: rgb(193, 18, 108);
@@ -381,4 +398,7 @@ h5 {
     height: 360px;
 }
 
-
+.logoinsc{
+    width: 100px;
+    height: 100px;
+}

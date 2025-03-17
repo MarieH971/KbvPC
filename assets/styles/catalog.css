@@ -22,9 +22,11 @@
     border-radius: 8px;
   }
   
-  .catalogue-item h3 {
+  .h4catalog {
     margin-top: 10px;
     font-size: 1.2rem;
+    color: rgb(193, 18, 108);
+    
   }
   
   .catalogue-item p {

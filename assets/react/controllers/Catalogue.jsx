@@ -19,7 +19,7 @@ const Catalogue = () => {
         {articles.map((article) => (
           <div key={article.id} className="catalogue-item">
             <img src={article.image} alt={article.name} className="catalogue-item-image"/>
-            <h3>{article.name}</h3>
+            <h4 class="h4catalog">{article.name}</h4>
             <p>{article.description}</p>
           </div>
         ))}
